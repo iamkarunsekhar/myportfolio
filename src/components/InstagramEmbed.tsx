@@ -2,6 +2,16 @@
 
 import { useEffect, useRef } from 'react';
 
+declare global {
+  interface Window {
+    instgrm?: {
+      Embeds: {
+        process(): void;
+      };
+    };
+  }
+}
+
 type InstagramEmbedProps = {
   url: string;
   maxWidth?: number;
