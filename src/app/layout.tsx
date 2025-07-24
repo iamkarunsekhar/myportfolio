@@ -25,10 +25,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <script type="module" src="https://unpkg.com/ionicons@7.2.0/dist/ionicons/ionicons.esm.js"></script>
-        <script noModule src="https://unpkg.com/ionicons@7.2.0/dist/ionicons/ionicons.js"></script>
-      </head>
       <body
         className={`${quicksand.variable} ${playfair.variable} antialiased`}
       >
