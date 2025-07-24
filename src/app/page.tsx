@@ -40,7 +40,7 @@ export default function HomePage() {
           {/* Main Introduction Card - Large Left Side */}
           <Card layout='col-span-7 row-span-6'>
             <div className="h-full flex flex-col justify-center">
-              <h1 className="text-md text-gray-400 mb-4">Hey! How's it going?</h1>
+              <h1 className="text-md text-gray-400 mb-4">Hey! How&apos;s it going?</h1>
               <div className="space-y-4 text-lg leading-relaxed">
                 <p>
                   My name is <span className="text-white">Karun Sekhar</span>, and I am a{' '}
@@ -52,7 +52,7 @@ export default function HomePage() {
                   On top of that, I also like to spend time as a musician and photographer.
                 </p>
                 <p className="text-[#F68080] text-lg font-sans font-medium italic mt-8">
-                  Let's create something together.
+                  Let&apos;s create something together.
                 </p>
               </div>
             </div>
@@ -146,7 +146,7 @@ export default function HomePage() {
           <Card layout='col-span-4 row-span-2'>
             <div className="h-full flex flex-col justify-center items-center text-center">
               <EnvelopeIcon className="w-8 h-8 text-white mb-3 group-hover:text-[#F68080] transition-colors duration-300" />
-              <h3 className="text-lg font-bold mb-2">Let's Connect</h3>
+              <h3 className="text-lg font-bold mb-2">Let&apos;s Connect</h3>
               <button className="px-4 py-2 bg-white text-black rounded-full hover:bg-gray-200 transition-all duration-300 text-sm font-medium group-hover:bg-[#F68080] cursor-pointer">
                 Get In Touch
               </button>
