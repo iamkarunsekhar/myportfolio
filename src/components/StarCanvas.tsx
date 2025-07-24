@@ -53,7 +53,7 @@ const StarsCanvas = () => {
       return positions;
     };
     
-    let starPositions = generateStarPositions(starCount);
+    const starPositions = generateStarPositions(starCount);
     starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
     
     // Create circular texture using canvas
