@@ -34,7 +34,7 @@ const StarsCanvas = () => {
     // Calculate responsive star count based on screen size
     const getStarCount = (w: number, h: number) => {
       const area = w * h;
-      const baseCount = 300;
+      const baseCount = 500;
       const scaleFactor = Math.min(area / (1920 * 1080), 2); // Scale based on screen area
       return Math.floor(baseCount * scaleFactor);
     };
@@ -78,7 +78,7 @@ const StarsCanvas = () => {
     
     // Create star material with responsive size
     const getStarSize = (w: number, h: number) => {
-      const baseSize = 0.25;
+      const baseSize = 0.5;
       const scaleFactor = Math.min(w / 1920, h / 1080); // Scale based on common desktop resolution
       return Math.max(baseSize * scaleFactor, 0.1); // Minimum size to ensure visibility
     };

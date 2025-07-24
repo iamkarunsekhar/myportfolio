@@ -18,6 +18,13 @@ const InstagramEmbed: React.FC<InstagramEmbedProps> = ({ url, maxWidth = 540 }) 
     ref.current?.appendChild(script);
   }, []);
 
+  useEffect(() => {
+    // Reinitialize Instagram embeds
+    if ((window as any).instgrm) {
+      (window as any).instgrm.Embeds.process();
+    }
+  }, [url]);
+
   return (
     <div ref={ref}>
       <blockquote

@@ -65,6 +65,7 @@ export default function HomePage() {
                 src={"/portrait_bw.jpg"} 
                 alt='A photo of me holding a camera!' 
                 fill
+                sizes=''
                 className="object-cover rounded-xl"
               />
             </div>
@@ -125,9 +126,9 @@ export default function HomePage() {
             <p className="text-gray-300 text-sm leading-relaxed mb-4">
               Capturing moments through my lens. Landscapes, portraits, and street photography.
             </p>
-            <button className="flex items-center text-white hover:text-gray-300 transition-colors duration-300 text-sm group-hover:text-[#F68080] cursor-pointer">
+            <Link href="/gallery" className="flex items-center text-white hover:text-gray-300 transition-colors duration-300 text-sm group-hover:text-[#F68080] cursor-pointer">
               View Gallery <ArrowRightIcon className="w-4 h-4 ml-2" />
-            </button>
+            </Link>
           </Card>
 
           {/* Instagram embedding */}

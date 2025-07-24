@@ -2,6 +2,9 @@
 
 import Image from 'next/image';
 import { Photo } from '@/types/photo';
+import Card from './Card';
+import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
 
 interface PhotoGridProps {
   photos: Photo[];
@@ -10,25 +13,25 @@ interface PhotoGridProps {
 
 export default function PhotoGrid({ photos, onPhotoClick }: PhotoGridProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <Card layout='flex justify-center items-center'>
+        <Link href="/" className="flex items-center text-white hover:text-gray-300 transition-colors duration-300 text-sm group-hover:text-[#F68080] cursor-pointer">
+          <ArrowLeftIcon className="w-4 h-4 mr-2" /> Back to Home
+        </Link>
+      </Card>
       {photos.map((photo, index) => (
         <div
-          key={photo.id}
-          className="photo-card group relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer transition-all duration-400 ease-out bg-white/5 backdrop-blur-sm border border-white/10 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:border-orange-500/30"
+          key={photo.key}
+          className="photo-card group relative aspect-[16/9] rounded-2xl overflow-hidden cursor-pointer bg-white/5 backdrop-blur-sm border border-white/10"
           onClick={() => onPhotoClick(index)}
         >
           <Image
-            src={photo.src}
-            alt={photo.title}
+            src={photo.url}
+            alt={`Photo from gallery: ${index}`}
             fill
-            className="object-cover transition-transform duration-400 group-hover:scale-105"
+            className="object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
           />
-          
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-5 transform translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-            <h3 className="text-lg font-medium mb-1">{photo.title}</h3>
-            <p className="text-sm text-white/70">{photo.description}</p>
-          </div>
         </div>
       ))}
     </div>

@@ -1,6 +1,6 @@
 export interface Photo {
-  id: number;
-  src: string;
+  key: number;
+  url: string;
   title: string;
   description: string;
 }

@@ -3,7 +3,7 @@ import React from "react";
 export default function Card({ children, layout }: { children?: React.ReactNode, layout?: string }) {
     return (
         <div 
-            className={`${layout} h-auto backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/8 transition-all duration-500 group`}
+            className={`${layout} h-auto backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/8 transition-all duration-500 group`}
             style={{
               position: 'relative',
             }}
