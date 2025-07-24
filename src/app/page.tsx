@@ -35,10 +35,10 @@ export default function HomePage() {
     <div className="min-h-screen text-white font-mono relative overflow-hidden">
       <div className="relative z-10 min-h-screen p-6 max-w-7xl mx-auto">
         {/* Mosaic Grid Layout */}
-        <div className="grid grid-cols-12 grid-rows-12 gap-4">
+        <div className="grid grid-cols-12 lg:grid-rows-12 md:grid-rows-7 sm:grid-rows-6 grid-rows-4 gap-4">
 
           {/* Main Introduction Card - Large Left Side */}
-          <Card layout='col-span-7 row-span-6'>
+          <Card layout='col-span-12 row-span-1 sm:col-span-12 sm:row-span-1 lg:col-span-7 lg:row-span-6 md:col-span-12 md:row-span-1'>
             <div className="h-full flex flex-col justify-center">
               <h1 className="text-md text-gray-400 mb-4">Hey! How&apos;s it going?</h1>
               <div className="space-y-4 text-lg leading-relaxed">
@@ -59,7 +59,7 @@ export default function HomePage() {
           </Card>
 
           {/* Portrait photo */}
-          <Card layout='col-span-5 row-span-4'>
+          <Card layout='col-span-12 row-span-1 sm:col-span-12 sm:row-span-1 lg:col-span-5 lg:row-span-4 md:col-span-12 md:row-span-1'>
             <div className="h-full flex items-center justify-center">
               <Image 
                 src={"/portrait_bw.jpg"} 
@@ -71,7 +71,7 @@ export default function HomePage() {
           </Card>
 
           {/* Social Links Card - Right Side */}
-          <Card layout='col-span-1 row-span-2'>
+          <Card layout='col-span-2 row-span-1 sm:col-span-2 row-span-1 md:col-span-1 lg:row-span-2'>
             <div className="flex flex-col justify-center items-center gap-6 h-full">
               <Link 
                 href="https://www.github.com/iamkarunsekhar" 
@@ -95,14 +95,14 @@ export default function HomePage() {
           </Card>
 
           {/* Modern Clock */}
-          <Card layout='col-span-4 row-span-2'>
+          <Card layout='col-span-10 row-span-1 sm:col-span-5 sm:row-span-1 lg:col-span-4 lg:row-span-2 md:row-span-1 md:col-span-4'>
             <div className='w-full h-full'>
               <StyledClock size={200} className='mx-auto'/>
             </div>
           </Card>
 
           {/* Software Engineering Card */}
-          <Card layout='col-span-4 row-span-4'>
+          <Card layout='col-span-12 row-span-1 sm:col-span-5 sm:row-span-1 lg:col-span-4 lg:row-span-4 md:col-span-7 md:row-span-1'>
             <CodeBracketIcon className="w-10 h-10 text-white mb-4 group-hover:text-[#F68080] transition-colors duration-300" />
             <h3 className="text-xl font-sans font-bold mb-3">Senior Software Engineer</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
@@ -119,7 +119,7 @@ export default function HomePage() {
           </Card>
 
           {/* Photography Card */}
-          <Card layout='col-span-4 row-span-4'>
+          <Card layout='col-span-12 row-span-1 sm:col-span-5 sm:row-span-1 lg:col-span-4 lg:row-span-4 md:col-span-7 md:row-span-1'>
             <CameraIcon className="w-10 h-10 text-white mb-4 group-hover:text-[#F68080] transition-colors duration-300" />
             <h3 className="text-xl font-sans font-bold mb-3">Photography</h3>
             <p className="text-gray-300 text-sm leading-relaxed mb-4">
@@ -130,20 +130,20 @@ export default function HomePage() {
             </button>
           </Card>
 
-          {/* MusicalNoteIcon Card */}
-          <Card layout='col-span-4 row-span-4'>
+          {/* Instagram embedding */}
+          <Card layout='col-span-12 row-span-1 sm:col-span-7 sm:row-span-1 lg:col-span-4 lg:row-span-4 md:col-span-5 md:row-span-1'>
             <div className='w-full h-full flex font-sans italic justify-center items-center text-[#F68080] font-semibold text-2xl'>
               <InstagramEmbed url='https://www.instagram.com/p/DMbUP9aS7TP/?utm_source=ig_embed&amp;utm_campaign=loading'/>
             </div>
           </Card>
 
-          {/* Featured Project Card - Wide */}
-          <Card layout='col-span-8 row-span-2'>
+          {/* Spotify Card */}
+          <Card layout='sm:col-span-12 sm:row-span-1 lg:col-span-8 lg:row-span-2 col-span-12 row-span-1 md:row-span-1'>
             <SpotifyTopTrack timeRange="medium_term" />
           </Card>
 
           {/* Contact CTA Card */}
-          <Card layout='col-span-4 row-span-2'>
+          <Card layout='sm:col-span-12 sm:row-span-1 lg:col-span-4 lg:row-span-2 col-span-12 row-span-1 md:col-span-12'>
             <div className="h-full flex flex-col justify-center items-center text-center">
               <EnvelopeIcon className="w-8 h-8 text-white mb-3 group-hover:text-[#F68080] transition-colors duration-300" />
               <h3 className="text-lg font-bold mb-2">Let&apos;s Connect</h3>
