@@ -19,9 +19,8 @@ const InstagramEmbed: React.FC<InstagramEmbedProps> = ({ url, maxWidth = 540 }) 
   }, []);
 
   useEffect(() => {
-    // Reinitialize Instagram embeds
-    if ((window as any).instgrm) {
-      (window as any).instgrm.Embeds.process();
+    if (window.instgrm) {
+      window.instgrm.Embeds.process();
     }
   }, [url]);
 
