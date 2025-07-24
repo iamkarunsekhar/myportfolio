@@ -7,10 +7,13 @@ import { Linkedin } from "lucide-react";
 import Image from 'next/image';
 import Card from '@/components/Card';
 import SpotifyTopTrack from '@/components/SpotifyTopTrack';
+import Link from 'next/link';
+import InstagramEmbed from '@/components/InstagramEmbed';
+import StyledClock from '@/components/WallClock/WallClock';
 
 export default function HomePage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const skills = ["React", "Next.js", "TypeScript", "JavaScript", "AWS", "Azure", "Python", "FastAPI", "OpenAI SDK", "SQL", "NoSQL"];
+  const skills = ["React", "Next.js", "TypeScript", "JavaScript", "TailwindCSS", "Figma", "AWS", "Azure", "Python", "FastAPI", "OpenAI SDK", "SQL", "PyTesseract", "PyTorch", "NoSQL"];
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -21,28 +24,15 @@ export default function HomePage() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Subtle animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute w-96 h-96 bg-white/5 rounded-full blur-3xl transition-transform duration-1000 ease-out"
-          style={{
-            transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`,
-            left: '20%',
-            top: '10%'
-          }}
-        />
-        <div 
-          className="absolute w-80 h-80 bg-white/3 rounded-full blur-3xl transition-transform duration-1000 ease-out"
-          style={{
-            transform: `translate(${mousePosition.x * -0.015}px, ${mousePosition.y * -0.015}px)`,
-            right: '20%',
-            bottom: '10%'
-          }}
-        />
-      </div>
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/Karun_Sekhar_Resume.pdf';
+    link.download = 'Karun_Sekhar_Resume.pdf';
+    link.click();
+  };
 
+  return (
+    <div className="min-h-screen text-white font-mono relative overflow-hidden">
       <div className="relative z-10 min-h-screen p-6 max-w-7xl mx-auto">
         {/* Mosaic Grid Layout */}
         <div className="grid grid-cols-12 grid-rows-12 gap-4">
@@ -50,7 +40,7 @@ export default function HomePage() {
           {/* Main Introduction Card - Large Left Side */}
           <Card layout='col-span-7 row-span-6'>
             <div className="h-full flex flex-col justify-center">
-              <h1 className="text-sm text-gray-400 mb-4">Hey! How's it going?</h1>
+              <h1 className="text-md text-gray-400 mb-4">Hey! How's it going?</h1>
               <div className="space-y-4 text-lg leading-relaxed">
                 <p>
                   My name is <span className="text-white">Karun Sekhar</span>, and I am a{' '}
@@ -61,7 +51,7 @@ export default function HomePage() {
                 <p className="text-gray-300">
                   On top of that, I also like to spend time as a musician and photographer.
                 </p>
-                <p className="text-[#F68080] font-medium italic mt-8">
+                <p className="text-[#F68080] text-lg font-sans font-medium italic mt-8">
                   Let's create something together.
                 </p>
               </div>
@@ -81,24 +71,40 @@ export default function HomePage() {
           </Card>
 
           {/* Social Links Card - Right Side */}
-          <Card layout='col-span-5 row-span-2'>
-            <div className="flex justify-center items-center space-x-6 h-full">
-              <button className="flex items-center text-white hover:text-gray-300 transition-colors duration-300 text-sm group-hover:text-[#F68080] cursor-pointer">
+          <Card layout='col-span-1 row-span-2'>
+            <div className="flex flex-col justify-center items-center gap-6 h-full">
+              <Link 
+                href="https://www.github.com/iamkarunsekhar" 
+                target='__blank' 
+                className="flex items-center text-white hover:text-gray-300 transition-colors duration-300 text-sm group-hover:text-[#F68080] cursor-pointer">
                 <SiGithub size={24} />
-              </button>
-              <button className="flex items-center text-white hover:text-gray-300 transition-colors duration-300 text-sm group-hover:text-[#F68080] cursor-pointer">
+              </Link>
+              <Link 
+                href="https://www.instagram.com/karun.sekhar" 
+                target='__blank' 
+                className="flex items-center text-white hover:text-gray-300 transition-colors duration-300 text-sm group-hover:text-[#F68080] cursor-pointer">
                 <SiInstagram size={24} />
-              </button>
-              <button className="flex items-center text-white hover:text-gray-300 transition-colors duration-300 text-sm group-hover:text-[#F68080] cursor-pointer">
+              </Link>
+              <Link 
+                href="https://www.linkedin.com/in/karun-sekhar" 
+                target='__blank' 
+                className="flex items-center text-white hover:text-gray-300 transition-colors duration-300 text-sm group-hover:text-[#F68080] cursor-pointer">
                 <Linkedin />
-              </button>
+              </Link>
+            </div>
+          </Card>
+
+          {/* Modern Clock */}
+          <Card layout='col-span-4 row-span-2'>
+            <div className='w-full h-full'>
+              <StyledClock size={200} className='mx-auto'/>
             </div>
           </Card>
 
           {/* Software Engineering Card */}
-          <Card layout='col-span-4 row-span-3'>
+          <Card layout='col-span-4 row-span-4'>
             <CodeBracketIcon className="w-10 h-10 text-white mb-4 group-hover:text-[#F68080] transition-colors duration-300" />
-            <h3 className="text-xl font-bold mb-3">Software Engineer</h3>
+            <h3 className="text-xl font-sans font-bold mb-3">Senior Software Engineer</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
               Full-stack developer specializing in Next.js, TypeScript, and Python. Building scalable applications with modern technologies.
             </p>
@@ -107,15 +113,15 @@ export default function HomePage() {
                 <span key={skill} className="px-2 py-1 bg-white/10 rounded text-xs">{skill}</span>
               ))}
             </div>
-            <button className="flex items-center mt-3 text-white hover:text-gray-300 transition-colors duration-300 text-sm group-hover:text-[#F68080] cursor-pointer">
+            <button onClick={handleDownload} className="flex items-center mt-3 text-white hover:text-gray-300 transition-colors duration-300 text-sm group-hover:text-[#F68080] cursor-pointer">
               Get My Resume <ArrowRightIcon className="w-4 h-4 ml-2" />
             </button>
           </Card>
 
           {/* Photography Card */}
-          <Card layout='col-span-4 row-span-3'>
+          <Card layout='col-span-4 row-span-4'>
             <CameraIcon className="w-10 h-10 text-white mb-4 group-hover:text-[#F68080] transition-colors duration-300" />
-            <h3 className="text-xl font-bold mb-3">Photography</h3>
+            <h3 className="text-xl font-sans font-bold mb-3">Photography</h3>
             <p className="text-gray-300 text-sm leading-relaxed mb-4">
               Capturing moments through my lens. Landscapes, portraits, and street photography.
             </p>
@@ -125,7 +131,11 @@ export default function HomePage() {
           </Card>
 
           {/* MusicalNoteIcon Card */}
-          <Card layout='col-span-4 row-span-3'></Card>
+          <Card layout='col-span-4 row-span-4'>
+            <div className='w-full h-full flex font-sans italic justify-center items-center text-[#F68080] font-semibold text-2xl'>
+              <InstagramEmbed url='https://www.instagram.com/p/DMbUP9aS7TP/?utm_source=ig_embed&amp;utm_campaign=loading'/>
+            </div>
+          </Card>
 
           {/* Featured Project Card - Wide */}
           <Card layout='col-span-8 row-span-2'>
@@ -135,9 +145,9 @@ export default function HomePage() {
           {/* Contact CTA Card */}
           <Card layout='col-span-4 row-span-2'>
             <div className="h-full flex flex-col justify-center items-center text-center">
-              <EnvelopeIcon className="w-8 h-8 text-white mb-3 group-hover:scale-110 transition-transform duration-300" />
+              <EnvelopeIcon className="w-8 h-8 text-white mb-3 group-hover:text-[#F68080] transition-colors duration-300" />
               <h3 className="text-lg font-bold mb-2">Let's Connect</h3>
-              <button className="px-4 py-2 bg-white text-black rounded-full hover:bg-gray-200 transition-all duration-300 text-sm font-medium group-hover:scale-105 transform">
+              <button className="px-4 py-2 bg-white text-black rounded-full hover:bg-gray-200 transition-all duration-300 text-sm font-medium group-hover:bg-[#F68080] cursor-pointer">
                 Get In Touch
               </button>
             </div>
